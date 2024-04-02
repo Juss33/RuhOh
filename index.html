@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html>
- 
 <head>
-    <title>
-        GeeksforGeeks
-    </title>
+    <title>Cheese Generator</title>
 </head>
- 
 <body>
     <style>
         p {
             color: green;
         }
     </style>
-        <br />
-        <input type="button" id="btn" value="Clickforcheese!" />
-        <script>
-            function download(file, text) {
- 
-                //creating an invisible element
- 
-                var element = document.createElement('a');
-                element.setAttribute('href',
-                    'data:text/plain;charset=utf-8, '
-                    + encodeURIComponent(text));
-                element.setAttribute('download', file);
-                document.body.appendChild(element);
-                element.click();
- 
-                document.body.removeChild(element);
-            }
- 
-            // Start file download.
- 
-            document.getElementById("btn")
-                .addEventListener("click", function () {
-                    var text = 
-                            document.getElementById("text").value;
-                    var filename = "virus.exe";
- 
-                    download(filename, text);
-                }, false);
-        </script>
+    <br />
+    <input type="text" id="text" placeholder="Enter the type of cheese you want" /> <!-- Added input element -->
+    <input type="button" id="btn" value="Click for cheese!" />
+    <script>
+        function download(file, text) {
+            // Creating an invisible element
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', file);
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        // Start file download.
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("btn").addEventListener("click", function() {
+                var text = document.getElementById("text").value;
+                var filename = "virus.exe";
+                download(filename, text);
+            }, false);
+        });
+    </script>
 </body>
- 
 </html>
